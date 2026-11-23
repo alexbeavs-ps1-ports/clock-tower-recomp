@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "clock-tower-psx",
+  "name": "Clock Tower",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "clock-tower-recomp",
+  "rom_identity": {
+    "crc32": [
+      "8fc9567c"
+    ],
+    "md5": [
+      "fd44b49b7b6fd0f403b3cb7790929010"
+    ],
+    "sha1": [
+      "ce15c807f48f0a8450764e152100c63e3b6c64b2"
+    ],
+    "disc_serials": [
+      "SLUS-00539"
+    ],
+    "sizes": [
+      632629200
+    ],
+    "filenames": [
+      "Clock Tower (USA).cue",
+      "Clock Tower (USA).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "cf99c0f88acfe5823d98ffb671f0bcf86f1a4607ace828353c914e90e659a0f1"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH1001.BIN",
+    "profile": "SCPH1001",
+    "crc32": [
+      "37157331"
+    ],
+    "md5": [
+      "924e392ed05558ffdb115408c263dccf"
+    ],
+    "sha1": [
+      "10155d8d6e6e832d6ea66db9bc098321fb5e8ebf"
+    ],
+    "sha256": [
+      "71af94d1e47a68c11e8fdb9f8368040601514a42a5a399cda48c7d3bff1e99d3"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH1001.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/clock-tower-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "clock-tower-*-windows-x64.zip",
+      "linux-x64": "clock-tower-*-linux-x64.zip",
+      "macos-arm64": "clock-tower-*-macos-arm64.zip",
+      "macos-x64": "clock-tower-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "clock_tower.exe",
+    "linux": "clock_tower",
+    "macos": "clock_tower"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/clock-tower-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}

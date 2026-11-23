@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Clock Tower"
+id = "SLUS-00539"
+players = 1
+exe = "disc/SLUS_005.39"
+disc = "disc/Clock Tower (USA).cue"
+discs = ["disc/Clock Tower (USA).cue"]
+disc_serials = ["SLUS-00539"]
+load_address = "0x80010000"
+entry_pc = "0x80030068"
+text_size = "0x0006F800"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Clock Tower (USA).bin"
+cue_name = "Clock Tower (USA).cue"
+boot_exe = "SLUS_005.39"
+known_sizes = [632629200]
+known_md5 = [
+  "fd44b49b7b6fd0f403b3cb7790929010",
+]
+known_sha1 = [
+  "ce15c807f48f0a8450764e152100c63e3b6c64b2",
+]
+known_crc32 = [
+  "8fc9567c",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Clock Tower Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "cf99c0f88acfe5823d98ffb671f0bcf86f1a4607ace828353c914e90e659a0f1"
